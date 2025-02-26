@@ -1,12 +1,7 @@
 <main class="content jumbotron">
   <app-navbar></app-navbar>
-  <div class="container-xl d-flex flex-wrap gap-3 justify-content-center">
-    <app-weather-card 
-      *ngFor="let weather of weatherData"
-      [temp]="weather.temp"
-      [status]="weather.status"
-      [dia]="weather.dia"
-      [icon]="weather.icon">
-    </app-weather-card>
+
+  <div class="container-xl d-flex flex-wrap gap-3">
+      <app-weather-card/>
   </div>
 </main>

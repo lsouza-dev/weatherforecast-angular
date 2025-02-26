@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from '../../environment'; // Certifique-se que o caminho está correto
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { WeatherData } from '../models/weather.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetWeatherServiceService {
+export class WeatherService {
+  private apiUrl = 'http://localhost:5122/WeatherForecast';
 
-  private BASE_URL = 'http://api.weatherapi.com/v1';
-  private apiUrl = `${this.BASE_URL}/forecast.json?q=Serra&days=7&lang=pt&key=${environment.apiKey}`;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getWeatherData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getWeatherData(city: string): Observable<WeatherData> {
+    return this.http.get<any>(`${this.apiUrl}/${city}/week`).pipe(
+      map(response => new WeatherData(response.dados)) // Convertendo para a model
+    );
   }
 }

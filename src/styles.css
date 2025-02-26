@@ -3,16 +3,5 @@
 @import url('../src/styles/main.css');
 body{
     height: 100dvh;
-    background-color: blue;
-}
-
-.navbar{
-    text-align: center;
-    position: absolute;
-    top:  5%;
-    left: 15.5%;
-    justify-self: center;
-    padding: 2rem;
-    width:69%;
-    border-radius: .5rem;
+    background-color: #E9ECEF;
 }

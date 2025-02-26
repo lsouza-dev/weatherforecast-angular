@@ -6,3 +6,14 @@
     justify-content:  center;
     
 }
+
+.container-xl{
+    background-color: white;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    gap: 1rem;
+    padding: 1rem;
+}

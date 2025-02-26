@@ -1,9 +1,14 @@
-<div class="card border-dark mb-5" style="max-width: 18rem;">
-    <div class="card-body text-dark text-center">
-      <h2 class="card-title">{{ temp }}°C</h2>
-      <h4>{{ status }}</h4>
-      <img src="{{ icon }}" alt="" class="image-icon">
-      <h3>{{ dia }}</h3>
+<div class="container">@if (weatherData && filteredForecasts) {
+  @for (f of filteredForecasts; track $index) {
+  <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h2 class="card-title" style="margin-bottom: 1rem;">{{weatherData.cidade}}  {{f.tempC}}°C</h2>
+      <img src="{{f.icon}}" alt="Icone do céu em {{weatherData.cidade}} na data {{f.data}}">
+      <p class="card-text" style="max-height: 21%;">{{f.condicaoCeu}}</p>
+      <br>
+      <h5 class="card-subtitle">{{f.data}}</h5>
     </div>
+  </div>
+  }
+  }
 </div>
-  
