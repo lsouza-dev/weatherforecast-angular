@@ -1,7 +1,11 @@
 <main class="content jumbotron">
   <app-navbar></app-navbar>
-
   <div class="container-xl d-flex flex-wrap gap-3">
-      <app-weather-card/>
+      <app-weather-card (forecastsChange)="getWeather($event)"/>
+      @if (forecastWarning!) {
+        <div>
+          <h1>ALERTA</h1>
+        </div>
+      }
   </div>
 </main>

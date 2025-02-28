@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeatherService } from './services/get-weather-service.service';
-import { WeatherData } from './models/weather.model';
+import { Forecast, WeatherData } from './models/weather.model';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeatherComponent } from './components/weather-card/weather-card.component';
 
@@ -9,9 +9,13 @@ import { WeatherComponent } from './components/weather-card/weather-card.compone
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [NavbarComponent,WeatherComponent],
+  imports: [NavbarComponent, WeatherComponent],
 })
 export class AppComponent {
+  title: string = "Weather App"
+  @Input() cidade!: string;
+  forecastsData!: Forecast[];
+  forecastWarning!: Forecast | undefined;
   // weatherData!: WeatherData;
 
   // constructor(private weatherService: WeatherService) {}
@@ -26,4 +30,14 @@ export class AppComponent {
   //     error: (error) => console.error('Erro ao buscar dados da API:', error),
   //   });
   // }
+
+  getWeather(data: Forecast[]) {
+    this.forecastsData = data;
+    this.getForecastWarning(data);
+  }
+
+  getForecastWarning(data: Forecast[]): void {
+    const fc = this.forecastsData.find(x => x.tempC > 30 || x.tempC < 10)
+    this.forecastWarning = fc;
+  }
 }

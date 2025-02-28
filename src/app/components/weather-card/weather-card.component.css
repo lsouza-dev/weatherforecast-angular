@@ -3,6 +3,12 @@
     grid-template-columns: repeat(7,1fr);
     gap: 1rem;
 }
+
+form{
+    width: 25%;
+    padding: 1rem;
+}
+
 .card{
     height: 90%;
     border-radius: .5rem;
