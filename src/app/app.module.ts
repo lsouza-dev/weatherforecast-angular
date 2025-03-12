@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'; // Import necessário
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [

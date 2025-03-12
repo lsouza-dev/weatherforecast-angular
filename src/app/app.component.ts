@@ -1,27 +1,35 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { Forecast } from './models/weather.model';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { WeatherCardComponent } from './components/weather-card/weather-card.component';
-import { ContainerComponent } from "./components/container/container.component";
+import { WeatherComponent } from './components/weather-card/weather-card.component';
+import { AlertModalComponent } from './components/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, NavbarComponent, WeatherCardComponent, ContainerComponent], // Adicionando NavbarComponent aqui
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [NavbarComponent, WeatherComponent, AlertModalComponent],
 })
 export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
+  title: string = 'Weather App';
+  @Input() cidade!: string;
+  forecastsData!: Forecast[];
+  forecastWarning!: Forecast | undefined;
+
+  getWeather(data: Forecast[]) {
+    this.forecastsData = data;
+    this.getForecastWarning(data);
   }
-  weatherData = [
-    { temp: 25, status: 'Ensolarado', dia: 'Segunda', icon: 'assets/sun.png' },
-    { temp: 25, status: 'Ensolarado', dia: 'Segunda', icon: 'assets/sun.png' },
-    { temp: 20, status: 'Nublado', dia: 'Terça', icon: 'assets/cloud.png' },
-    { temp: 20, status: 'Nublado', dia: 'Terça', icon: 'assets/cloud.png' },
-    { temp: 18, status: 'Chuvoso', dia: 'Quarta', icon: 'assets/rain.png' },
-    { temp: 18, status: 'Chuvoso', dia: 'Quarta', icon: 'assets/rain.png' },
-    { temp: 18, status: 'Chuvoso', dia: 'Quarta', icon: 'assets/rain.png' },
-  ];
+
+  getForecastWarning(data: Forecast[]): void {
+    const fc = data.find((x) => x.tempC > 30 || x.tempC < 10);
+    this.forecastWarning = fc;
+
+    if (fc) {
+      setTimeout(() => {
+        this.forecastWarning = undefined;
+      }, 10000);
+    }
+  }
 }
