@@ -15,7 +15,7 @@ export class WeatherComponent implements OnInit {
   @Input() cidade:string = 'Serra';
 
   @Output() forecastsChange = new EventEmitter<Forecast[]>();
-  
+
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
@@ -65,6 +65,7 @@ export class WeatherComponent implements OnInit {
     this.sendData(filtered);
     return filtered;
   }
+
 
 
   sendData(data:Forecast[]){
