@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class WeatherComponent implements OnInit {
   weatherData!: WeatherData;
+  mediaTemperatura!:number;
   filteredForecasts: Forecast[] = []; // Lista com previsões filtradas por dia e hora atual
   @Input() cidade:string = 'Serra';
 
@@ -62,7 +63,9 @@ export class WeatherComponent implements OnInit {
         filtered.push(forecast);
       }
     }
+    this.mediaTemperatura = filtered.reduce((sum, forecast) => sum + forecast.tempC, 0) / filtered.length;
     this.sendData(filtered);
+    console.log(filtered);
     return filtered;
   }
 

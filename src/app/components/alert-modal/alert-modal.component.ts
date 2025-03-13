@@ -13,10 +13,6 @@ export class AlertModalComponent implements OnInit {
   @Input() forecastWarningData: Forecast | any;
   warningMessage!: string;
 
-  closeModal() {
-    this.showModal = false;
-  }
-
 
   ngOnInit(): void {
     console.log(this.forecastWarningData);

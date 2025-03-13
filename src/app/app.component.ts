@@ -29,7 +29,7 @@ export class AppComponent {
     if (fc) {
       setTimeout(() => {
         this.forecastWarning = undefined;
-      }, 10000);
+      }, 6000);
     }
   }
 }
