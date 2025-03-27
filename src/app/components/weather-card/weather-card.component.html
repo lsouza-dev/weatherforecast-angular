@@ -30,6 +30,29 @@
       <h5 class="card-subtitle">{{ f.data }}</h5>
     </div>
   </div>
+  }
+
+  <!-- Devido à limitação de linceça da api consumida, apenas 3 dias eram retornados na requisição.
+    Os dados abaixo são apenas para completar os dias restantes que deveriam vir na requisição -->
+
+  @for (f of mockWeather.forecasts; track $index) {
+  <div class="card bg-light mb-3" style="max-width: 18rem">
+    <div class="card-body">
+      <h2 class="card-title" style="margin-bottom: 1rem">
+        {{ weatherData.cidade }} {{ f.tempC.toFixed(1) }}°C
+      </h2>
+      <img
+        src="http://cdn.weatherapi.com/weather/64x64/night/116.png"
+        alt="Icone do céu em {{ weatherData.cidade }} na data {{ f.data }}"
+      />
+      <p class="card-text" style="max-height: 21%">{{ f.condicaoCeu }}</p>
+      <br />
+      <h5 class="card-subtitle">{{ f.data }}</h5>
+    </div>
+  </div>
+
   } }
 </div>
-<h3>Média de Temperatura: {{mediaTemperatura.toFixed(1)}}C°</h3>
+<h3 style="margin-bottom: 1rem">
+  Média de Temperatura: {{ mediaTemperatura }}C°
+</h3>

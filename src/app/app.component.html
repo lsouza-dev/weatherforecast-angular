@@ -1,9 +1,18 @@
+<app-navbar />
 <main class="content jumbotron">
-  <app-navbar></app-navbar>
   <div class="container-xl d-flex flex-wrap gap-3">
-      <app-weather-card (forecastsChange)="getWeather($event)"/>
+    <app-weather-card (forecastsChange)="getWeather($event)" />
+  </div>
+  <div
+    class="container-xl d-flex flex-column justify-content-center align-items-center">
+    <div class="p-3 mb-4">
+      <p class="h1 text-center">Most Recent Articles</p>
     </div>
-  </main>
-  @if (forecastWarning!) {
-    <app-alert-modal [forecastWarningData]="forecastWarning" ></app-alert-modal>
-  }
+    <div class="d-flex flex-column justify-content-start align-items-start">
+      <app-news />
+    </div>
+  </div>
+</main>
+@if (forecastWarning!) {
+<app-alert-modal [forecastWarningData]="forecastWarning"></app-alert-modal>
+}

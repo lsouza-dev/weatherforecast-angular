@@ -3,13 +3,14 @@ import { Forecast } from './models/weather.model';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WeatherComponent } from './components/weather-card/weather-card.component';
 import { AlertModalComponent } from './components/alert-modal/alert-modal.component';
+import { NewsComponent } from "./components/news/news.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [NavbarComponent, WeatherComponent, AlertModalComponent],
+  imports: [NavbarComponent, WeatherComponent, AlertModalComponent, NewsComponent],
 })
 export class AppComponent {
   title: string = 'Weather App';
