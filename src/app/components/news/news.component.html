@@ -1,0 +1,50 @@
+<!-- <div class="d-flex p-2 gap-5">
+  <div class="d-flex flex-column gap-2">
+    <img
+      class="news-image"
+      src="https://www.investopedia.com/thmb/tbogVTGW1hppV27WqQsFq_PluT4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2155065132-127f950642994d2089969bfcb38b3df3.jpg"
+    />
+    <p>Published by <span>Andrew Kessel</span> at 2025-03-25T21:06:26Z</p>
+  </div>
+  <div class="d-flex flex-column">
+    <h1 class="news-title">
+      GameStop Stock Surges as Video Game Retailer Adds Bitcoin to Its
+      Investment Policy - Investopedia
+    </h1>
+    <h2 class="news-description">
+      GameStop updated its corporate investment policy to include Bitcoin,
+      sending shares higher in extended trading Tuesday.
+    </h2>
+    <p class="news-content">
+      GameStop (GME) updated its corporate investment policy to include Bitcoin,
+      sending shares higher in extended trading Tuesday.\r\nThe video game
+      retailer said its board unanimously approved the decision… [+934 chars]
+    </p>
+  </div>
+</div>
+<hr /> -->
+
+@if(articles){ @for (art of articles; track $index) {
+<div class="d-flex p-2 gap-5">
+  <div class="d-flex flex-column gap-2">
+    <img
+      class="news-image"
+      [src]="art.urlImagem"
+    />
+    <p>Published by <span>{{art.autor}}</span> at {{art.dataDePublicacao}}</p>
+  </div>
+  <div class="d-flex flex-column">
+    <h1 class="news-title">
+      {{art.titulo}}
+    </h1>
+    <h2 class="news-description">
+      {{art.descricao}}
+    </h2>
+    <p class="news-content">
+      {{art.conteudo}}
+    </p>
+  </div>
+</div>
+<hr />
+
+} }

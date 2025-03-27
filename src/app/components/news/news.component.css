@@ -1,0 +1,38 @@
+.container{
+  margin-bottom: 2rem;
+}
+
+.news-image{
+  border-radius: .5rem;
+  object-fit: cover;
+  height: 300px;
+  width: 500px;
+}
+
+.news-title{
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.news-description{
+  font-size:1.3rem;
+  font-weight: 500;
+  color: #3f3f3f;
+  margin-bottom: 1rem;
+}
+
+.news-content{
+  font-size: 1rem;
+  font-weight: 300;
+  color:grey;
+}
+
+span{
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3f3f3f;
+}
+
+hr{
+
+}

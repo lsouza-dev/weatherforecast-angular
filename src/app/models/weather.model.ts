@@ -3,8 +3,8 @@ export interface Forecast {
   horario: string;
   tempC: number;
   tempF: number;
-  icon: string;
-  condicaoCeu: string;
+  icon?: string;
+  condicaoCeu?: string;
 }
 
 export class WeatherData {
@@ -20,7 +20,7 @@ export class WeatherData {
     this.cidade = data.cidade;
     this.estado = data.estado;
     this.pais = data.pais;
-    this.tempC = data.tempC;
+    this.tempC = data.tempC.toFixed(1);
     this.condicaoCeu = data.condicaoCeu;
     this.icon = data.icon;
     this.forecasts = data.forecasts;
