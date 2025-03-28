@@ -5,7 +5,7 @@ export class News {
   descricao:string;
   url:string;
   urlImagem:string;
-  dataDePublicacao:Date;
+  dataDePublicacao:string;
   conteudo:string;
 
   constructor(news:News){
@@ -15,7 +15,7 @@ export class News {
     this.descricao = news.descricao;
     this.url = news.url;
     this.urlImagem = news.urlImagem;
-    this.dataDePublicacao = news.dataDePublicacao;
+    this.dataDePublicacao = news.dataDePublicacao.toString();
     this.conteudo = news.conteudo;
   }
 }

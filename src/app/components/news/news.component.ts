@@ -20,6 +20,15 @@ export class NewsComponent implements OnInit {
     this.service.getNews(country).subscribe({
       next: (news) => {
         this.articles = news;
+        this.articles.forEach((art) => {
+            art.dataDePublicacao = new Date(art.dataDePublicacao).toLocaleString('pt-BR', {
+              day: '2-digit',
+              month: '2-digit',
+              year: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+        })
         console.log(news);
       },
       error: (error) => console.error('Erro ao buscar dados da API:', error),
